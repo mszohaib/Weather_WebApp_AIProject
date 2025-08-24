@@ -1,7 +1,9 @@
-export default function ErrorBanner() {
-  return (
-    <div>
-      <h2>Error Goes here...</h2>
-    </div>
-  );
+import React from "react";
+export default function ErrorBanner({ errorMessage }) {
+  console.log("Component Check"); //To check if the component is working
+  console.log(`Error component rendered ..`, errorMessage); //To check if the Message is rendering from parentor props being recieving or not
+
+  return errorMessage === true ? (
+    <div>There is an Error...,{errorMessage}</div>
+  ) : null;
 }
