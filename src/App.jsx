@@ -40,15 +40,23 @@ function App() {
     }
     console.log({ units });
   };
+  //Function to flip the theme from the state when the button is pressed Light/Dark button
+  const handleThemeChange = () => {
+    //Ternary operater rather than the if else statement is better
+    theme === "light"
+      ? (console.log("Switch to :-", theme), setTheme("dark"))
+      : (console.log("Switch to :-", theme), setTheme("light"));
+  };
+
   return (
     <>
       <p>Hello this is my first Weather App -Api project !!</p>
       <SearchBar handleSearch={handleSearch} />
       {/* <ErrorBanner errorMessage={error} /> */}
       <UnitToggle units={units} onchangeUnits={handleUnitsChange} />
+      <ThemeToggle theme={theme} handleThemeChange={handleThemeChange} />
       {/* <ForecastCard />
       <Loader />
-      <ThemeToggle />
       <WeatherNow /> */}
     </>
   );
