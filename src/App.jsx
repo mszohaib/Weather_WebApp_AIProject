@@ -1,17 +1,17 @@
 import React from "react";
 import SearchBar from "./components/SearchBar";
 import ErrorBanner from "./components/ErrorBanner";
+import UnitToggle from "./components/UnitToggle";
 import ForecastCard from "./components/ForecastCard";
 import Loader from "./components/Loader";
 import ThemeToggle from "./components/ThemeToggle";
-import UnitToggle from "./components/UnitToggle";
 import WeatherNow from "./components/WeatherNow";
 
 function App() {
   //declared all the states to stores
   const [city, setCity] = React.useState(""); //The city that the user will search
   const [error, setError] = React.useState(null); //To display any error messages
-  const [units, setUnits] = React.useState("metric"); //The temperature in degree celius
+  const [units, setUnits] = React.useState("Metric"); //The temperature in degree celius
   const [theme, setTheme] = React.useState("light"); //The theme of the app - light or dark
   const [loading, setLoading] = React.useState(true); //true or false for the spinner
   const [currentWeather, setcurrentWeather] = React.useState(null); //Will hold the weather objects
@@ -25,16 +25,30 @@ function App() {
   const handleError = (errorMessage) => {
     setError(errorMessage);
   };
-  console.log("Current error state:", { error });
+
+  //Function-You have to retrive the value from the state and pass+ update the state with string
+  const handleUnitsChange = (selectUnits) => {
+    console.log("The user clicked button for :- ", selectUnits);
+    //Conditon if C btn press = metric and if F btn press = imperial
+    if (selectUnits === "Metric") {
+      console.log("Celcius btn selected by the user");
+      setUnits(selectUnits);
+    } else selectUnits === "Imperial";
+    {
+      console.log("Farenhiet btn selected by the user");
+      setUnits(selectUnits);
+    }
+    console.log({ units });
+  };
   return (
     <>
       <p>Hello this is my first Weather App -Api project !!</p>
       <SearchBar handleSearch={handleSearch} />
-      <ErrorBanner errorMessage={error} />
+      {/* <ErrorBanner errorMessage={error} /> */}
+      <UnitToggle units={units} onchangeUnits={handleUnitsChange} />
       {/* <ForecastCard />
       <Loader />
       <ThemeToggle />
-      <UnitToggle />
       <WeatherNow /> */}
     </>
   );

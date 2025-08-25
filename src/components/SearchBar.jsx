@@ -7,7 +7,7 @@ export default function SearchBar({ handleSearch }) {
   const triggerSearch = () => {
     const value = inputValue.trim();
     if (!value) return;
-    handleSearch(value); //This maked the value pass in the app(component) in order to pass there and
+    handleSearch(value); //This makes the value pass in the app(component) in order to pass there and
   }; //Function to trigger the search
   //Should log the values when typed in the input browser
   const handleInputChange = (event) => {
