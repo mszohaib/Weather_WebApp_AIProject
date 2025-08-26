@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SearchBar from "./components/SearchBar";
 import ErrorBanner from "./components/ErrorBanner";
 import UnitToggle from "./components/UnitToggle";
@@ -6,6 +6,7 @@ import ForecastCard from "./components/ForecastCard";
 import Loader from "./components/Loader";
 import ThemeToggle from "./components/ThemeToggle";
 import WeatherNow from "./components/WeatherNow";
+import appServices from "./services/appServices";
 
 function App() {
   //declared all the states to stores
@@ -17,14 +18,21 @@ function App() {
   const [currentWeather, setcurrentWeather] = React.useState(null); //Will hold the weather objects
   const [forecastDaily, setforecastDaily] = React.useState([]); //Array to holds summaries
 
-  const handleSearch = (searchedCity) => {
+  const handleSearch = async (searchedCity) => {
     console.log("User searched city:-", searchedCity);
     setCity(searchedCity);
+    //Here you are going to call the api
+    const data = await appServices(
+      searchedCity,
+      "bc862fc810c8a0873046c48f5ff6d872"
+    );
+    setcurrentWeather(data);
   };
   //To set the error in the use state- to store there every error
   const handleError = (errorMessage) => {
     setError(errorMessage);
   };
+  console.log("This is the currentWeather:-", currentWeather);
 
   //Function-You have to retrive the value from the state and pass+ update the state with string
   const handleUnitsChange = (selectUnits) => {
@@ -52,11 +60,17 @@ function App() {
     <>
       <p>Hello this is my first Weather App -Api project !!</p>
       <SearchBar handleSearch={handleSearch} />
-      {/* <ErrorBanner errorMessage={error} /> */}
+      <ErrorBanner errorMessage={error} />
       <UnitToggle units={units} onchangeUnits={handleUnitsChange} />
       <ThemeToggle theme={theme} handleThemeChange={handleThemeChange} />
-      {/* <ForecastCard />
       <Loader />
+      {/* Calling the Api and calling the weather and from there i am calling the main */}
+      {currentWeather ? (
+        <h1>{currentWeather.weather[0].main}</h1>
+      ) : (
+        <p>No Weather Data</p>
+      )}
+      {/* <ForecastCard />
       <WeatherNow /> */}
     </>
   );
