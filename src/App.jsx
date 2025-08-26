@@ -7,6 +7,7 @@ import Loader from "./components/Loader";
 import ThemeToggle from "./components/ThemeToggle";
 import WeatherNow from "./components/WeatherNow";
 import appServices from "./services/appServices";
+import ForecastList from "./components/ForecastList";
 
 function App() {
   //declared all the states to stores
@@ -71,7 +72,8 @@ function App() {
         <p>No Weather Data</p>
       )}
       <WeatherNow />
-      {/* <ForecastCard /> */}
+      <ForecastCard />
+      {/* <ForecastList /> */}
     </>
   );
 }
