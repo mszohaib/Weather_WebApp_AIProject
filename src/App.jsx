@@ -59,6 +59,7 @@ function App() {
 
   return (
     <>
+      {/* Displays all the things on the screen through the app file */}
       <p>Hello this is my first Weather App -Api project !!</p>
       <SearchBar handleSearch={handleSearch} />
       <ErrorBanner errorMessage={error} />
@@ -73,7 +74,7 @@ function App() {
       )}
       <WeatherNow />
       <ForecastCard />
-      {/* <ForecastList /> */}
+      <ForecastList />
     </>
   );
 }
