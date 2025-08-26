@@ -70,8 +70,8 @@ function App() {
       ) : (
         <p>No Weather Data</p>
       )}
-      {/* <ForecastCard />
-      <WeatherNow /> */}
+      <WeatherNow />
+      {/* <ForecastCard /> */}
     </>
   );
 }
