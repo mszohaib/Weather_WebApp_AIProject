@@ -1,0 +1,60 @@
+/* Styling the general layout of th web as well */
+body {
+  background-color: lightgrey;
+  font-family: "Times New Roman", Times, serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.App {
+  max-width: 800px;
+  padding: 20px;
+  margin: 0 auto; /*Topandbottom + left and right  */
+}
+/* Styling the header element in the app file- header  */
+.header {
+  color: blueviolet;
+  display: flex; /*To arrange header elements as flex items in row */
+  gap: 6px; /*Adding space between  the elements*/
+  align-items: center; /*Making the items in it vertically center*/
+  border-bottom: 5px solid yellow; /*Adding some border in the bottom element*/
+  background-color: black;
+  padding: 6px;
+}
+/* Styling the main element from the app file  */
+.main {
+  background-color: blue;
+  padding: 6px;
+}
+/* Styling the cards =>(WeatherNow and ForecastCard) */
+.card {
+  background-color: lightgrey;
+  padding: 15px;
+  border: 3px solid black; /**/
+  border-radius: 8px; /*To make the borders rounded of the elements*/
+}
+/* Styling the forecast list element in the app file */
+.forecast-list {
+  background-color: lightgray;
+  display: grid; /*To make it display in rows and columns 2D funcitonality*/
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(140px, 1fr)
+      /*1fr means to equally divide and give the left over spcace and add those space in the colums */
+  ); /*This fits according to screen and stacks the 5 cards into columns(screen small) and make as much columns as neded plus with 140px width and the one slice of the let over space for the next colums */
+}
+/* Adding styles for the error banners */
+.errorbanner {
+  background-color: red;
+  color: white;
+  font-weight: 20px;
+  padding: 5px;
+  border-radius: 15px; /*To round corner of the error banner when it shows*/
+}
+/* Styling the footer */
+.footer {
+  margin-top: 100px;
+  color: black;
+  font-size: 15px;
+}

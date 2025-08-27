@@ -6,8 +6,8 @@ import ForecastCard from "./components/ForecastCard";
 import Loader from "./components/Loader";
 import ThemeToggle from "./components/ThemeToggle";
 import WeatherNow from "./components/WeatherNow";
-import appServices from "./services/appServices";
 import ForecastList from "./components/ForecastList";
+import appServices from "./services/appServices";
 
 function App() {
   //declared all the states to stores
@@ -58,24 +58,50 @@ function App() {
   };
 
   return (
-    <>
+    <div className="App">
       {/* Displays all the things on the screen through the app file */}
       <p>Hello this is my first Weather App -Api project !!</p>
-      <SearchBar handleSearch={handleSearch} />
-      <ErrorBanner errorMessage={error} />
-      <UnitToggle units={units} onchangeUnits={handleUnitsChange} />
-      <ThemeToggle theme={theme} handleThemeChange={handleThemeChange} />
+
+      <header className="header">
+        <h1>Weather DashBoard</h1>
+        <SearchBar handleSearch={handleSearch} />
+        <UnitToggle units={units} onchangeUnits={handleUnitsChange} />
+        <ThemeToggle theme={theme} handleThemeChange={handleThemeChange} />
+      </header>
+
+      <main className="main">
+        <section className="errorbanner">
+          <ErrorBanner errorMessage={error} />
+        </section>
+
+        <section className="card">
+          <h1>Current Weather</h1>
+          <WeatherNow />
+        </section>
+
+        <section className="card">
+          <h1>5-days Forecast</h1>
+          <ForecastCard />
+        </section>
+
+        <section className="forecast-list">
+          <ForecastList />
+        </section>
+      </main>
+
       <Loader />
+
+      <footer className="footer">
+        Powered By Zohaib with the Help of OpenWeatherAPI
+      </footer>
+
       {/* Calling the Api and calling the weather and from there i am calling the main */}
       {currentWeather ? (
         <h1>{currentWeather.weather[0].main}</h1>
       ) : (
         <p>No Weather Data</p>
       )}
-      <WeatherNow />
-      <ForecastCard />
-      <ForecastList />
-    </>
+    </div>
   );
 }
 
