@@ -124,9 +124,7 @@ function App() {
   //Function to flip the theme from the state when the button is pressed Light/Dark button
   const handleThemeChange = () => {
     //Ternary operater rather than the if else statement is better
-    theme === "light"
-      ? (console.log("Switch to :-", theme), setTheme("dark"))
-      : (console.log("Switch to :-", theme), setTheme("light"));
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
   //To render the loader page only when the loader in the use state is true
   // const handleLoader = () => {
@@ -135,7 +133,7 @@ function App() {
   //   } else console.log("Please wait there is an error: - ");
   // };
   return (
-    <div className="App">
+    <div className={`App ${theme}`}>
       {/* Displays all the things on the screen through the app file */}
       <h2>Weather Dashboard App🌡️</h2>
       <p>Hello this is my first Weather App -Api project !!</p>
@@ -144,7 +142,7 @@ function App() {
         <h1>Weather DashBoard</h1>
         <SearchBar handleSearch={handleSearch} />
         <UnitToggle units={units} onchangeUnits={handleUnitsChange} />
-        <ThemeToggle theme={theme} onchangeTheme={handleThemeChange} />
+        <ThemeToggle theme={theme} handleThemeChange={handleThemeChange} />
       </header>
 
       <main className="main">

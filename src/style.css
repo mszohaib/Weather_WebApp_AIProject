@@ -12,50 +12,96 @@ body {
   padding: 20px;
   margin: 0 auto; /*Topandbottom + left and right  */
 }
+/* Adding the style for app when in light mode */
+.App.light {
+  background-color: whitesmoke;
+  color: black; /*Setting the black text color only*/
+}
+.App.dark {
+  background-color: black;
+  color: whitesmoke; /*Setting the white text color only*/
+}
+
 /* Styling the header element in the app file- header  */
 .header {
   color: blueviolet;
   display: flex; /*To arrange header elements as flex items in row */
   gap: 6px; /*Adding space between  the elements*/
   align-items: center; /*Making the items in it vertically center*/
-  border-bottom: 5px solid yellow; /*Adding some border in the bottom element*/
+  border-bottom: 5px solid white; /*Adding some border in the bottom element*/
   background-color: black;
   padding: 6px;
+  border-radius: 20px;
 }
 /* Styling the main element from the app file  */
 .main {
   background-color: blue;
   padding: 6px;
+  border-radius: 10px;
 }
 /* Styling the cards =>(WeatherNow and ForecastCard) */
 .card {
   background-color: lightgrey;
   padding: 15px;
   border: 3px solid black; /**/
-  border-radius: 8px; /*To make the borders rounded of the elements*/
+  border-radius: 10px; /*To make the borders rounded of the elements*/
 }
 /* Styling the forecast list element in the app file forecast list component*/
 .forecast-list {
   display: flex; /*To make it display in rows or columns but want it to display in row */
-  flex-direction: row;
-  background-color: lightgray;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(140px, 1fr)
-      /*1fr means to equally divide and give the left over spcace and add those space in the colums */
-  ); /*This fits according to screen and stacks the 5 cards into columns(screen small) and make as much columns as neded plus with 140px width and the one slice of the let over space for the next colums */
+  flex-direction: row; /*To diplay it horizontally*/
+  background-color: blue;
+  gap: 10px; /*Adding the gaps of the flex items which is the items being dsiplayed right now*/
+  overflow-x: auto; /*To make the content scroll from left to right if content overflows*/
+  padding: 6px;
+  scroll-behavior: smooth; /*Addding the scroll to the page if the contents gets out */
 }
+/* For stlying the cards or items in the forecast lists */
+.forecast-items {
+  flex: 0 0 auto;
+  background-color: white;
+  min-width: 150px; /*Adding the width of the items*/
+  border-radius: 10px;
+  padding: 7px; /*Adding padding for each items in the list*/
+  text-align: center;
+  box-shadow: 5px 5px 20px black;
+  transition: transform 0.3 ease;
+}
+/* Adding the hover effect when the user hovers over it:- */
+.forecast-items:hover {
+  background-color: white;
+  transform: translateY(-6px);
+}
+/* Adding the stlye to the whole horizontal scroll bar */
+.forecast-items::-webkit-scrollbar {
+  height: 7px;
+}
+/* Adding the styles scrolling line in the bar  */
+.forecast-items::-webkit-scrollbar-thumb {
+  background: grey;
+  border-radius: 5px;
+}
+
 /* Adding styles for the error banners */
 .errorbanner {
   background-color: red;
   color: white;
   font-weight: 20px;
   padding: 5px;
-  border-radius: 15px; /*To round corner of the error banner when it shows*/
+  border-radius: 10px; /*To round corner of the error banner when it shows*/
 }
 /* Styling the footer */
 .footer {
   margin-top: 100px;
   color: black;
   font-size: 15px;
+}
+/* Making it the app mobile responsive as well */
+@media (max-width: 786px) {
+  .card,
+  .unitToggle,
+  .themeToggle {
+    flex-direction: column; /*Making the items in the top to bottom if they are in a samll screen or the above screem width*/
+    align-items: stretch; /*To stretch the items fully to its capacity as well*/
+  }
 }

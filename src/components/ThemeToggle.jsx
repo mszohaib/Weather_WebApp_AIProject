@@ -1,18 +1,14 @@
 import React from "react";
 
-export default function ThemeToggle({ theme, onchangeTheme }) {
+export default function ThemeToggle({ theme, handleThemeChange }) {
   const getButtonText = () => {
-    if (theme === "light") {
-      return "Switch to DarkMode";
-    } else {
-      return "Switch to LightMode";
-    }
+    return theme === "light" ? "Switch to Dark Mode" : "Switch to Light Mode";
   };
-
+  //This below will be the main return funcitions
   return (
-    <div>
+    <div className="themeToggle">
       <h2>The current Theme is:-{theme} </h2>
-      <button onClick={() => onchangeTheme()}>{getButtonText()}</button>
+      <button onClick={() => handleThemeChange()}>{getButtonText()}</button>
     </div>
   );
 }
