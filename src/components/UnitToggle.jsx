@@ -7,8 +7,8 @@ export default function UnitToggle({ units, onchangeUnits }) {
   return (
     <div className="unitToggle">
       <h2>Units will be shown here!:- {units}</h2>
-      <button onClick={() => onchangeUnits("Metric")}>Button for C^</button>
-      <button onClick={() => onchangeUnits("Imperial")}>Button for F^</button>
+      <button onClick={() => onchangeUnits("metric")}>Button for C^</button>
+      <button onClick={() => onchangeUnits("imperial")}>Button for F^</button>
       <p>Text area for the search bar</p>
     </div>
   );

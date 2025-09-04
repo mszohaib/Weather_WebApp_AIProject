@@ -34,10 +34,11 @@ body {
   border: 3px solid black; /**/
   border-radius: 8px; /*To make the borders rounded of the elements*/
 }
-/* Styling the forecast list element in the app file */
+/* Styling the forecast list element in the app file forecast list component*/
 .forecast-list {
+  display: flex; /*To make it display in rows or columns but want it to display in row */
+  flex-direction: row;
   background-color: lightgray;
-  display: grid; /*To make it display in rows and columns 2D funcitonality*/
   grid-template-columns: repeat(
     auto-fit,
     minmax(140px, 1fr)
