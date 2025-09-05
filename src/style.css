@@ -6,6 +6,17 @@ body {
   padding: 0;
   text-align: center;
 }
+/* Having the light mode by default*/
+.card,
+.unitToggle,
+.themeToggle,
+.forecast-items,
+.error-box,
+.footer {
+  background-color: white;
+  color: black;
+  border-radius: 20px;
+}
 
 .App {
   max-width: 800px;
@@ -14,47 +25,71 @@ body {
 }
 /* Adding the style for app when in light mode */
 .App.light {
-  background-color: whitesmoke;
+  background-color: white;
   color: black; /*Setting the black text color only*/
 }
 .App.dark {
   background-color: black;
-  color: whitesmoke; /*Setting the white text color only*/
+  color: white; /*Setting the white text color only*/
 }
 
 /* Styling the header element in the app file- header  */
 .header {
-  color: blueviolet;
+  color: White;
   display: flex; /*To arrange header elements as flex items in row */
   gap: 6px; /*Adding space between  the elements*/
   align-items: center; /*Making the items in it vertically center*/
-  border-bottom: 5px solid white; /*Adding some border in the bottom element*/
+  border: 4px solid lightgray; /*Adding some border in the bottom element*/
   background-color: black;
   padding: 6px;
   border-radius: 20px;
 }
 /* Styling the main element from the app file  */
 .main {
-  background-color: blue;
+  background-color: lightgray;
   padding: 6px;
   border-radius: 10px;
 }
 /* Styling the cards =>(WeatherNow and ForecastCard) */
 .card {
-  background-color: lightgrey;
+  background-color: white;
   padding: 15px;
-  border: 3px solid black; /**/
+  border: 4px solid black; /**/
   border-radius: 10px; /*To make the borders rounded of the elements*/
+  margin: 10px;
+}
+
+.card > label {
+  color: black;
+  font-size: large;
+  font-weight: 200px;
+}
+.card > input {
+  margin: 7px;
+  border-radius: 6px;
+}
+/* Shifting the  buttons a little bit upwards */
+.unitToggle > button {
+  margin-bottom: 12px;
+  border-radius: 6px;
+}
+/* Shifting the  buttons a little bit upwards for the themes */
+.themeToggle > button {
+  margin-bottom: 12px;
+  border-radius: 6px;
 }
 /* Styling the forecast list element in the app file forecast list component*/
 .forecast-list {
   display: flex; /*To make it display in rows or columns but want it to display in row */
   flex-direction: row; /*To diplay it horizontally*/
-  background-color: blue;
+  background-color: white;
   gap: 10px; /*Adding the gaps of the flex items which is the items being dsiplayed right now*/
   overflow-x: auto; /*To make the content scroll from left to right if content overflows*/
   padding: 6px;
   scroll-behavior: smooth; /*Addding the scroll to the page if the contents gets out */
+  border-radius: 10px;
+  border: 4px solid black;
+  margin: 5px;
 }
 /* For stlying the cards or items in the forecast lists */
 .forecast-items {
@@ -69,7 +104,7 @@ body {
 }
 /* Adding the hover effect when the user hovers over it:- */
 .forecast-items:hover {
-  background-color: white;
+  /* background-color: white; */
   transform: translateY(-6px);
 }
 /* Adding the stlye to the whole horizontal scroll bar */
@@ -89,13 +124,20 @@ body {
   font-weight: 20px;
   padding: 5px;
   border-radius: 10px; /*To round corner of the error banner when it shows*/
+  border: 5px solid black;
+  margin: 10px;
 }
 /* Styling the footer */
 .footer {
   margin-top: 100px;
   color: black;
   font-size: 15px;
+  border: 5px solid lightgray;
+  font-size: 15px;
+  font-weight: 25px;
 }
+/* Adding the flex to the other componets */
+
 /* Making it the app mobile responsive as well */
 @media (max-width: 786px) {
   .card,

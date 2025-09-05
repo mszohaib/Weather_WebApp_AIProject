@@ -24,7 +24,7 @@ export default function SearchBar({ handleSearch }) {
 
   return (
     <div className="card">
-      <label>Label for the city</label>
+      <label>Search Bar</label>
       <input
         value={inputValue}
         type="text"

@@ -135,11 +135,11 @@ function App() {
   return (
     <div className={`App ${theme}`}>
       {/* Displays all the things on the screen through the app file */}
-      <h2>Weather Dashboard App🌡️</h2>
-      <p>Hello this is my first Weather App -Api project !!</p>
+      <h1>Weather Dashboard App🌡️</h1>
+      <p>! MZS !</p>
 
       <header className="header">
-        <h1>Weather DashBoard</h1>
+        {/* <h1>Weather DashBoard</h1> */}
         <SearchBar handleSearch={handleSearch} />
         <UnitToggle units={units} onchangeUnits={handleUnitsChange} />
         <ThemeToggle theme={theme} handleThemeChange={handleThemeChange} />
