@@ -12,7 +12,7 @@ const apikey = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
 function App() {
   //declared all the states to stores
   const [city, setCity] = React.useState(""); //The city that the user will search
-  const [error, setError] = React.useState(null); //To display any error messages
+  const [error, setError] = React.useState(""); //To display any error messages
   const [units, setUnits] = React.useState("metric"); //The temperature in degree celius
   const [theme, setTheme] = React.useState("light"); //The theme of the app - light or dark
   const [loading, setLoading] = React.useState(true); //true or false for the spinner
@@ -146,17 +146,17 @@ function App() {
       </header>
 
       <main className="main">
-        <section className="errorbanner">
-          <ErrorBanner errorMessage={error} />
-        </section>
+        {error && (
+          <section className="errorbanner">
+            <ErrorBanner errorMessage={error} />
+          </section>
+        )}
 
         <section className="card">
-          <h1>Current Weather</h1>
           {!error && currentWeather?.main && (
             <WeatherNow currentWeather={currentWeather} units={units} />
           )}
         </section>
-
         <section className="forecast-list">
           {!error && fiveDayForecast?.length > 0 && (
             <ForecastList fiveDayForecast={fiveDayForecast} units={units} />

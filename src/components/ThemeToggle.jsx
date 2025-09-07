@@ -7,7 +7,7 @@ export default function ThemeToggle({ theme, handleThemeChange }) {
   //This below will be the main return funcitions
   return (
     <div className="themeToggle">
-      <h2>The Current Theme is:- {theme} </h2>
+      <h2>Current Theme is ➡️ {theme} </h2>
       <button onClick={() => handleThemeChange()}>{getButtonText()}</button>
     </div>
   );

@@ -1,149 +1,250 @@
-/* Styling the general layout of th web as well */
-body {
-  background-color: lightgrey;
-  font-family: "Times New Roman", Times, serif;
-  margin: 0;
-  padding: 0;
-  text-align: center;
+/* Addin the css to all of elements */
+* {
+  box-sizing: border-box;
 }
-/* Having the light mode by default*/
-.card,
-.unitToggle,
-.themeToggle,
-.forecast-items,
-.error-box,
-.footer {
-  background-color: white;
-  color: black;
-  border-radius: 20px;
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
 .App {
-  max-width: 800px;
-  padding: 20px;
-  margin: 0 auto; /*Topandbottom + left and right  */
+  min-height: 100vh;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: linear-gradient(180deg, #439cfe 0%, #00d2ff 100%);
+  color: #fff;
 }
-/* Adding the style for app when in light mode */
+
 .App.light {
-  background-color: white;
-  color: black; /*Setting the black text color only*/
+  --text: #ffffff;
+  --muted: rgba(255, 255, 255, 0.85);
+  --card-bg: rgba(255, 255, 255, 0.18);
+  --card-border: rgba(255, 255, 255, 0.35);
+  --shadow: none;
+  --input-bg: rgba(255, 255, 255, 0.12);
 }
+
 .App.dark {
-  background-color: black;
-  color: white; /*Setting the white text color only*/
+  background: linear-gradient(180deg, #0f1e3a 0%, #123c5a 100%);
+  --text: #e8f1ff;
+  --muted: rgba(232, 241, 255, 0.85);
+  --card-bg: rgba(255, 255, 255, 0.08);
+  --card-border: rgba(255, 255, 255, 0.22);
+  --shadow: none;
+  --input-bg: rgba(255, 255, 255, 0.1);
 }
 
-/* Styling the header element in the app file- header  */
-.header {
-  color: White;
-  display: flex; /*To arrange header elements as flex items in row */
-  gap: 6px; /*Adding space between  the elements*/
-  align-items: center; /*Making the items in it vertically center*/
-  border: 4px solid lightgray; /*Adding some border in the bottom element*/
-  background-color: black;
-  padding: 6px;
-  border-radius: 20px;
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  color: var(--text);
 }
-/* Styling the main element from the app file  */
-.main {
-  background-color: lightgray;
-  padding: 6px;
-  border-radius: 10px;
-}
-/* Styling the cards =>(WeatherNow and ForecastCard) */
-.card {
-  background-color: white;
-  padding: 15px;
-  border: 4px solid black; /**/
-  border-radius: 10px; /*To make the borders rounded of the elements*/
-  margin: 10px;
-}
-
-.card > label {
-  color: black;
-  font-size: large;
-  font-weight: 200px;
-}
-.card > input {
-  margin: 7px;
-  border-radius: 6px;
-}
-/* Shifting the  buttons a little bit upwards */
-.unitToggle > button {
-  margin-bottom: 12px;
-  border-radius: 6px;
-}
-/* Shifting the  buttons a little bit upwards for the themes */
-.themeToggle > button {
-  margin-bottom: 12px;
-  border-radius: 6px;
-}
-/* Styling the forecast list element in the app file forecast list component*/
-.forecast-list {
-  display: flex; /*To make it display in rows or columns but want it to display in row */
-  flex-direction: row; /*To diplay it horizontally*/
-  background-color: white;
-  gap: 10px; /*Adding the gaps of the flex items which is the items being dsiplayed right now*/
-  overflow-x: auto; /*To make the content scroll from left to right if content overflows*/
-  padding: 6px;
-  scroll-behavior: smooth; /*Addding the scroll to the page if the contents gets out */
-  border-radius: 10px;
-  border: 4px solid black;
-  margin: 5px;
-}
-/* For stlying the cards or items in the forecast lists */
-.forecast-items {
-  flex: 0 0 auto;
-  background-color: white;
-  min-width: 150px; /*Adding the width of the items*/
-  border-radius: 10px;
-  padding: 7px; /*Adding padding for each items in the list*/
-  text-align: center;
-  box-shadow: 5px 5px 20px black;
-  transition: transform 0.3 ease;
-}
-/* Adding the hover effect when the user hovers over it:- */
-.forecast-items:hover {
-  /* background-color: white; */
-  transform: translateY(-6px);
-}
-/* Adding the stlye to the whole horizontal scroll bar */
-.forecast-items::-webkit-scrollbar {
-  height: 7px;
-}
-/* Adding the styles scrolling line in the bar  */
-.forecast-items::-webkit-scrollbar-thumb {
-  background: grey;
-  border-radius: 5px;
-}
-
-/* Adding styles for the error banners */
-.errorbanner {
-  background-color: red;
-  color: white;
-  font-weight: 20px;
-  padding: 5px;
-  border-radius: 10px; /*To round corner of the error banner when it shows*/
-  border: 5px solid black;
-  margin: 10px;
-}
-/* Styling the footer */
+.header,
+.main,
 .footer {
-  margin-top: 100px;
-  color: black;
-  font-size: 15px;
-  border: 5px solid lightgray;
-  font-size: 15px;
-  font-weight: 25px;
+  width: min(1100px, 100%);
+  margin: 0 auto;
 }
-/* Adding the flex to the other componets */
 
-/* Making it the app mobile responsive as well */
-@media (max-width: 786px) {
-  .card,
-  .unitToggle,
-  .themeToggle {
-    flex-direction: column; /*Making the items in the top to bottom if they are in a samll screen or the above screem width*/
-    align-items: stretch; /*To stretch the items fully to its capacity as well*/
+/* ========== Header ========== */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Shared glass card style */
+.card,
+.unitToggle,
+.themeToggle {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+  border-radius: 16px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card input {
+  background: var(--input-bg);
+  border: 1px solid var(--card-border);
+  color: var(--text);
+  padding: 10px 12px;
+  border-radius: 12px;
+  outline: none;
+}
+.card input::placeholder {
+  color: var(--muted);
+}
+
+.card button {
+  background: transparent;
+  border: 1px solid var(--card-border);
+  color: var(--text);
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.08s ease, background 0.2s ease, border-color 0.2s ease;
+}
+.card button:hover {
+  background: var(--input-bg);
+}
+.card button:active {
+  transform: translateY(1px);
+}
+
+/* ========== Main ========== */
+.main {
+  display: grid;
+  gap: 24px;
+  align-items: start; /*Dont stretch the child elements*/
+  justify-items: center;
+}
+
+.WeatherNow {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+  border-radius: 24px;
+  padding: 25px;
+  width: min(540px, 100%);
+  max-width: 540px;
+  justify-self: start; /*If parent is the grid then keep it on the left*/
+  align-self: start; /*Dont stretch vertically*/
+  margin: 0 auto;
+}
+
+.now-hero {
+  font-size: clamp(100px, 10vw, 120px);
+  font-weight: 700px;
+  line-height: 1;
+  color: var(--text);
+}
+
+.now-sub {
+  font-size: 20px;
+  color: var(--muted);
+  margin-top: 8px;
+  font-weight: 700px;
+}
+.unitToggle > button {
+  background: transparent;
+  border: 1px solid var(--card-border);
+  color: var(--text);
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.08s ease, background 0.2s ease, border-color 0.2s ease;
+}
+.themeToggle > button {
+  background: transparent;
+  border: 1px solid var(--card-border);
+  color: var(--text);
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.08s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+/* ========== Forecast Grid ========== */
+.forecast-list {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(200px, 1fr));
+  gap: 32px;
+  margin-top: 30px;
+}
+
+.forecast-items {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 24px;
+  text-align: center;
+  display: grid;
+  gap: 10px;
+  min-width: 220px;
+  min-height: 320px;
+  transition: transform 0.12s ease;
+}
+/* Making the app more text bigger in the forecast items */
+.forecast-items .h3 {
+  font-size: 12000px;
+  line-height: 1.35;
+  font-weight: 600px;
+  color: var(--muted);
+}
+/* Making the img in the forecast items*/
+.forecast-items img {
+  width: 64px;
+  height: 64px;
+  margin: 6px auto 0;
+}
+/* Making the small current weather detials small as well */
+.weatherDes {
+  /* background-color: paleturquoise; */
+  font-size: 36px;
+  font-weight: 600px;
+  text-transform: capitalize;
+}
+.forecast-items:hover {
+  transform: translateY(-10px);
+}
+.forecast-items h3 {
+  font-size: 16px;
+  color: var(--muted);
+  font-weight: 500;
+}
+.forecast-items img {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto;
+}
+
+/*  Footer  */
+.footer {
+  text-align: center;
+  color: var(--muted);
+  padding: 8px 0 24px;
+}
+/* Adding the styles to loader  */
+.Loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10px;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 1024px) {
+  .forecast-list {
+    grid-template-columns: repeat(3, minmax(160px, 1fr));
+  }
+}
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .forecast-list {
+    grid-template-columns: repeat(2, minmax(160px, 1fr));
+  }
+}
+@media (max-width: 420px) {
+  .forecast-list {
+    grid-template-columns: 1fr;
   }
 }

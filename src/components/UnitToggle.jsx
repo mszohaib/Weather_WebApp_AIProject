@@ -6,9 +6,9 @@ export default function UnitToggle({ units, onchangeUnits }) {
 
   return (
     <div className="unitToggle">
-      <h2>Current Unit is:- {units}</h2>
-      <button onClick={() => onchangeUnits("metric")}>Button for C^</button>
-      <button onClick={() => onchangeUnits("imperial")}>Button for F^</button>
+      <h2>Current Unit: {units}</h2>
+      <button onClick={() => onchangeUnits("metric")}>Button for C°</button>
+      <button onClick={() => onchangeUnits("imperial")}>Button for F°</button>
     </div>
   );
 }
